@@ -17,11 +17,11 @@ var questions = [
     },
     {
         title: "String values must be enclosed within ____ when being assigned to variables.",
-        choices: ["commas", "curly brackets", "quotes", "parenthesis"],
+        choices: ["commas", "curly brackets", "quotes", "parentheses"],
         answer: "quotes"
     },
     {
-        title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+        title: "A very useful tool used during development and debugging for printing content to the debugger is:",
         choices: ["Javascript", "terminal / bash", "for loops", "console log"],
         answer: "console log"
     },
@@ -30,12 +30,9 @@ var questions = [
 // Declared variables
 var score = 0;
 var questionIndex = 0;
-
-// Start working code 
-// Declared variables
 var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
-var questionsDiv = document.querySelector("#questionsDiv");
+var questionsBox = document.querySelector("#questionsBox");
 var wrapper = document.querySelector("#wrapper");
 
 // Seconds left is 15 seconds per question:
@@ -68,20 +65,20 @@ timer.addEventListener("click", function () {
 // Renders questions and choices to page: 
 function render(questionIndex) {
     // Clears existing data 
-    questionsDiv.innerHTML = "";
+    questionsBox.innerHTML = "";
     ulCreate.innerHTML = "";
     // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
         // Appends question title only
         var userQuestion = questions[questionIndex].title;
         var userChoices = questions[questionIndex].choices;
-        questionsDiv.textContent = userQuestion;
+        questionsBox.textContent = userQuestion;
     }
     // New for each for question choices
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
-        questionsDiv.appendChild(ulCreate);
+        questionsBox.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
@@ -116,12 +113,12 @@ function compare(event) {
     } else {
         render(questionIndex);
     }
-    questionsDiv.appendChild(createDiv);
+    questionsBox.appendChild(createDiv);
 
 }
 // All done will append last page
 function allDone() {
-    questionsDiv.innerHTML = "";
+    questionsBox.innerHTML = "";
     currentTime.innerHTML = "";
 
     // Heading:
@@ -129,13 +126,13 @@ function allDone() {
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
 
-    questionsDiv.appendChild(createH1);
+    questionsBox.appendChild(createH1);
 
     // Paragraph
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
 
-    questionsDiv.appendChild(createP);
+    questionsBox.appendChild(createP);
 
     // Calculates time remaining and replaces it with score
     if (secondsLeft >= 0) {
@@ -144,7 +141,7 @@ function allDone() {
         clearInterval(holdInterval);
         createP.textContent = "Your final score is: " + timeRemaining;
 
-        questionsDiv.appendChild(createP2);
+        questionsBox.appendChild(createP2);
     }
 
     // Label
@@ -152,7 +149,7 @@ function allDone() {
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your initials: ";
 
-    questionsDiv.appendChild(createLabel);
+    questionsBox.appendChild(createLabel);
 
     // input
     var createInput = document.createElement("input");
@@ -160,7 +157,7 @@ function allDone() {
     createInput.setAttribute("id", "initials");
     createInput.textContent = "";
 
-    questionsDiv.appendChild(createInput);
+    questionsBox.appendChild(createInput);
 
     // submit
     var createSubmit = document.createElement("button");
@@ -168,7 +165,7 @@ function allDone() {
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
 
-    questionsDiv.appendChild(createSubmit);
+    questionsBox.appendChild(createSubmit);
 
     // Event listener to capture initials and local storage for initials and score
     createSubmit.addEventListener("click", function () {
