@@ -5,48 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Code Quiz</title>
 </head>
 
 <body>
     <!-- Link to high scores -->
-    <div class="container">
-        <div class="row justify-content-left">
-            <div class="col-sm-12">
-                <header>
-                    <a href="highscores.html">View High Scores</a>
-                    </header>
-            </div>
+    <header>
+        <a href="highscores.html">View High Scores</a>
+    </header>
+
+    <div id="wrapper">
+        <!-- Div for timer -->
+        <div id="currentTime"></div>
+        <!-- Div for quiz content -->
+        <div id="questionsBox">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score/time by ten seconds! Good luck!</p>
+            <ul id="choicesUl"></ul>
+        </div>
+        <div>
+            <!-- Buttons -->
+            <button id="startTime">Start Quiz</button>
         </div>
     </div>
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-6">
-                <div id="wrapper">
-                    <!-- Div for timer -->
-                    <div id="currentTime"></div>
-                    <!-- Div for quiz content -->
-                    <div id="questionsBox">
-                        <h1>Coding Quiz Challenge</h1>
-                        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
-                        answers will penalize your score/time by ten seconds! Good luck!</p>
-                        <ul id="choicesUl"></ul>
-                    <div>
-                    <!-- Buttons -->
-                    <button id="startTime">Start Quiz</button>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-
-
+            
     <script src="./assets/js/script.js"></script>
-
-
 </body>
-
 </html>
