@@ -27,6 +27,7 @@ var questions = [
     },
 
 ];
+
 // Declared variables
 var score = 0;
 var questionIndex = 0;
@@ -35,7 +36,7 @@ var timer = document.querySelector("#startTime");
 var questionsBox = document.querySelector("#questionsBox");
 var wrapper = document.querySelector("#wrapper");
 
-// Seconds left is 15 seconds per question:
+// Seconds left
 var secondsLeft = 76;
 // Holds interval time
 var holdInterval = 0;
@@ -44,9 +45,8 @@ var penalty = 10;
 // Creates new element
 var ulCreate = document.createElement("ul");
 
-// Triggers timer on button, shows user a display on the screen
+// Starts timer on button click, shows user a display on the screen
 timer.addEventListener("click", function () {
-    // We are checking zero because its originally set to zero
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             secondsLeft--;
@@ -67,7 +67,7 @@ function render(questionIndex) {
     // Clears existing data 
     questionsBox.innerHTML = "";
     ulCreate.innerHTML = "";
-    // For loops to loop through all info in array
+    // For loop to loop through all questions
     for (var i = 0; i < questions.length; i++) {
         // Appends question title only
         var userQuestion = questions[questionIndex].title;
@@ -97,7 +97,7 @@ function compare(event) {
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
             // Correct condition 
         } else {
-            // Will deduct -5 seconds off secondsLeft for wrong answers
+            // Will deduct 10 seconds off secondsLeft for wrong answers
             secondsLeft = secondsLeft - penalty;
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
@@ -121,7 +121,7 @@ function allDone() {
     questionsBox.innerHTML = "";
     currentTime.innerHTML = "";
 
-    // Heading:
+    // Heading
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
@@ -190,7 +190,7 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            // Travels to final page
+            // move to final page
             window.location.replace("./HighScores.html");
         }
     });
