@@ -9,7 +9,7 @@ clear.addEventListener("click", function () {
     location.reload();
 });
 
-// Retrieves local stroage 
+// Retrieves scores from local storage 
 var allScores = localStorage.getItem("allScores");
 allScores = JSON.parse(allScores);
 
@@ -23,7 +23,7 @@ if (allScores !== null) {
 
     }
 }
-// Event listener to move to index page
+// Event listener to move back to home page
 goBack.addEventListener("click", function () {
     window.location.replace("./index.html");
 });
